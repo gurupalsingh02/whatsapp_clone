@@ -12,6 +12,7 @@ class LandingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
       backgroundColor: backgroundColor,
@@ -20,7 +21,7 @@ class LandingScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: size.height * 0.1,
             ),
             const Text(
               "Welcome To WhatsApp",
@@ -30,14 +31,14 @@ class LandingScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: size.height * 0.1,
             ),
             Image.asset(
               'Assets/bg.png',
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: size.height * 0.4,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: size.height * 0.1,
             ),
             const Padding(
               padding: EdgeInsets.all(20.0),
@@ -52,7 +53,7 @@ class LandingScreen extends StatelessWidget {
             CustomButton(
               text: "Agree And Continue",
               color: tabColor,
-              minimumsize: Size(MediaQuery.of(context).size.width * 0.75, 50),
+              minimumsize: Size(size.width * 0.75, 50),
               fun: () {
                 Navigator.pushNamed(context, LoginScreen.routename);
               },

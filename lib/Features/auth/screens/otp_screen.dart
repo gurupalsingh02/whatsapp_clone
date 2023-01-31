@@ -15,6 +15,7 @@ class OTPScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('verifying your number'),
@@ -24,7 +25,7 @@ class OTPScreen extends ConsumerWidget {
           Text('OTP has been sent to your Mobile Number'),
           Center(
             child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.5,
+              width: size.width * 0.5,
               child: TextField(
                 onChanged: (value) {
                   if (value.length == 6) {

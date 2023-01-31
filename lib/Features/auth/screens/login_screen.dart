@@ -29,9 +29,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    phonecontroller.addListener(() {
-      setState(() {});
-    });
     super.initState();
   }
 
@@ -62,6 +59,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
@@ -89,7 +87,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   if (country != null) Text("+${country!.phoneCode}"),
                   const SizedBox(width: 10),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: size.width * 0.5,
                     child: TextField(
                       controller: phonecontroller,
                       keyboardType: TextInputType.number,
@@ -100,18 +98,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: size.height * 0.6,
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: CustomButton(
                     text: "Next",
-                    minimumsize:
-                        Size(MediaQuery.of(context).size.width * 0.5, 50),
+                    minimumsize: Size(size.width * 0.5, 50),
                     color: tabColor,
                     fun: () {
                       sendPhoneNumber();
-                      Navigator.pushNamed(context, OTPScreen.routename);
                     }),
               )
             ],

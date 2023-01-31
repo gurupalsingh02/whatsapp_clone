@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/Features/Landing/Screens/Landing_Screen.dart';
 import 'package:whatsapp_clone/Features/auth/screens/login_screen.dart';
 import 'package:whatsapp_clone/Features/auth/screens/otp_screen.dart';
+import 'package:whatsapp_clone/Features/auth/screens/user_infromation_screen.dart';
 import 'package:whatsapp_clone/colors.dart';
 import 'package:whatsapp_clone/firebase_options.dart';
 import 'package:whatsapp_clone/router.dart';
@@ -22,7 +23,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LandingScreen(),
       initialRoute: LandingScreen.routename,
       theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: backgroundColor,
