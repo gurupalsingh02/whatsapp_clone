@@ -23,7 +23,7 @@ class SelectContactController {
     required this.ref,
   });
   selectContact(Contact selectedContact, BuildContext context) {
-    selectContactRepository.SelectContact(
+    selectContactRepository.selectContact(
         selectedContact: selectedContact, context: context);
   }
 }

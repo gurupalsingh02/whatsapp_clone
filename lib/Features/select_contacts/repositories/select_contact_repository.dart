@@ -26,7 +26,7 @@ class SelectContactRepository {
     return contacts;
   }
 
-  SelectContact(
+  selectContact(
       {required Contact selectedContact, required BuildContext context}) async {
     try {
       var userCollection = await firestore.collection('users').get();
@@ -39,13 +39,15 @@ class SelectContactRepository {
           isFound = true;
           Navigator.pushNamed(context, MobileChatScreen.routename, arguments: {
             'name': userData.name,
-            'uid': userData.uid,
+            'recieverUserId': userData.uid,
           });
         }
       }
       if (!isFound) {
         showSnakBar(context, 'this Number does not exist on this app');
       }
-    } catch (e) {}
+    } catch (e) {
+      print('error');
+    }
   }
 }
