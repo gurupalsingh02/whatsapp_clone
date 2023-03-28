@@ -11,7 +11,7 @@ import 'package:whatsapp_clone/Common/providers/message_reply_provider.dart';
 import 'package:whatsapp_clone/Common/widgets/utils/utils.dart';
 import 'package:whatsapp_clone/Features/chat/controllers/chat_controller.dart';
 import 'package:whatsapp_clone/Features/chat/widgets/message_reply_preview.dart';
-import 'package:whatsapp_clone/colors.dart';
+import 'package:whatsapp_clone/Common/widgets/utils/colors.dart';
 
 class BottomChatField extends ConsumerStatefulWidget {
   final bool isGroupChat;

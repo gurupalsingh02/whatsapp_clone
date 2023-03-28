@@ -52,10 +52,32 @@ class CallController {
           recieverName: value.name,
           recieverPic: value.profilePic);
 
-      callRepository.makeCall(
-          senderCallData: senderCallData,
-          recieverCallData: recieverCallData,
-          context: context);
+      if (isGroupChat) {
+        callRepository.makeGroupCall(
+            senderCallData: senderCallData,
+            recieverCallData: recieverCallData,
+            context: context);
+      } else {
+        callRepository.makeCall(
+            senderCallData: senderCallData,
+            recieverCallData: recieverCallData,
+            context: context);
+      }
     });
+  }
+
+  void endCall({
+    required String callerId,
+    required String recieverId,
+    required BuildContext context,
+    required bool isGroupChat,
+  }) {
+    if (isGroupChat) {
+      callRepository.endGroupCall(
+          callerId: callerId, recieverId: recieverId, context: context);
+    } else {
+      callRepository.endCall(
+          callerId: callerId, recieverId: recieverId, context: context);
+    }
   }
 }

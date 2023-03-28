@@ -1,14 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/Features/call/controller/call_controller.dart';
+import 'package:whatsapp_clone/Features/call/screens/call_screen.dart';
 import 'package:whatsapp_clone/Models/call.dart';
 
-class CallPickupScreen extends ConsumerWidget {
+class CallPickupScreen extends ConsumerStatefulWidget {
   final Widget scaffold;
   const CallPickupScreen({required this.scaffold, super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<CallPickupScreen> createState() => _CallPickupScreenState();
+}
+
+class _CallPickupScreenState extends ConsumerState<CallPickupScreen> {
+  @override
+  Widget build(BuildContext context) {
     return StreamBuilder(
         stream: ref.watch(callControllerProvider).callSteam,
         builder: (context, snapshot) {
@@ -53,7 +61,13 @@ class CallPickupScreen extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () async {
+                                await FirebaseFirestore.instance
+                                    .collection('call')
+                                    .doc(call.recieverId)
+                                    .delete();
+                                setState(() {});
+                              },
                               icon: const Icon(
                                 Icons.call_end,
                                 color: Colors.redAccent,
@@ -62,7 +76,18 @@ class CallPickupScreen extends ConsumerWidget {
                             width: 30,
                           ),
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CallScreen(
+                                      channelId: call.callId,
+                                      call: call,
+                                      isGroupChat: false,
+                                    ),
+                                  ),
+                                );
+                              },
                               icon: const Icon(
                                 Icons.call,
                                 color: Colors.green,
@@ -75,7 +100,7 @@ class CallPickupScreen extends ConsumerWidget {
               );
             }
           }
-          return scaffold;
+          return widget.scaffold;
         });
   }
 }

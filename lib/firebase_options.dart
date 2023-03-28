@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '677824116708',
     projectId: 'whatsapp-clone-2497c',
     storageBucket: 'whatsapp-clone-2497c.appspot.com',
+    androidClientId: '677824116708-2ba7fo377vqtgiv3vcijqjjvb8a3j4ni.apps.googleusercontent.com',
     iosClientId: '677824116708-69j6e8juql7d56cqshfqvkqepok9rtea.apps.googleusercontent.com',
     iosBundleId: 'com.example.whatsappClone',
   );

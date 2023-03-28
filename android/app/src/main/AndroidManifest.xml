@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.whatsapp_clone">
    <application
-        android:label="whatsapp_clone"
+        android:label="whatsapp clone"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -42,6 +42,5 @@
      <uses-permission  android:name="android.permission.CAMERA"  />
      <uses-permission  android:name="android.permission.MODIFY_AUDIO_SETTINGS"  />
      <uses-permission  android:name="android.permission.ACCESS_NETWORK_STATE"  />
-     <!-- The Agora SDK requires Bluetooth permissions in case users are using Bluetooth devices.-->
      <uses-permission  android:name="android.permission.BLUETOOTH"  />
 </manifest>

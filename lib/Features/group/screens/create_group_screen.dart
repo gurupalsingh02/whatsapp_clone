@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/Common/widgets/utils/utils.dart';
 import 'package:whatsapp_clone/Features/group/controller/group_controller.dart';
 import 'package:whatsapp_clone/Features/group/widgets/select_contacts_group.dart';
-import 'package:whatsapp_clone/colors.dart';
+import 'package:whatsapp_clone/Common/widgets/utils/colors.dart';
 
 class CreateGroupScreen extends ConsumerStatefulWidget {
   static const routename = 'create_group_screen';

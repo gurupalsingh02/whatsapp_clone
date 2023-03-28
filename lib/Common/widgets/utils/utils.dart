@@ -2,7 +2,10 @@ import 'dart:io';
 
 import 'package:enough_giphy_flutter/enough_giphy_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as p;
 
 const defaultPhotoUrl =
     'https://png.pngitem.com/pimgs/s/130-1300400_user-hd-png-download.png';
@@ -48,4 +51,13 @@ Future<GiphyGif?> pickGIF(BuildContext context) async {
     showSnakBar(context, e.toString());
   }
   return gif;
+}
+
+Future<File?> compressfile(String path) async {
+  final targetpath = p.join((await getTemporaryDirectory()).path,
+      '${DateTime.now()}.${p.extension(path)}');
+  File? finalfile = await FlutterImageCompress.compressAndGetFile(
+      path, targetpath,
+      quality: 50);
+  return finalfile;
 }

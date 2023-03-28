@@ -11,7 +11,7 @@ import 'package:whatsapp_clone/Common/widgets/utils/utils.dart';
 import 'package:whatsapp_clone/Features/auth/screens/otp_screen.dart';
 import 'package:whatsapp_clone/Features/auth/screens/user_infromation_screen.dart';
 import 'package:whatsapp_clone/Models/user_model.dart';
-import 'package:whatsapp_clone/screens/mobile_layout_screen.dart';
+import 'package:whatsapp_clone/mobile_layout_screen.dart';
 
 final authRepositoryProvider = Provider((ref) => AuthRepository(
     auth: FirebaseAuth.instance, firestore: FirebaseFirestore.instance));

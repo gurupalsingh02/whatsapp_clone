@@ -1,7 +1,5 @@
 import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class VideoPlayerItem extends StatefulWidget {
   final String url;
@@ -13,7 +11,7 @@ class VideoPlayerItem extends StatefulWidget {
 
 late CachedVideoPlayerController videoPlayerController;
 bool playing = false;
-Duration position = Duration(seconds: 0);
+Duration position = const Duration(seconds: 0);
 
 class _VideoPlayerItemState extends State<VideoPlayerItem> {
   @override
@@ -61,7 +59,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                     backgroundColor: Colors.grey,
                     playedColor: Colors.lightBlue,
                     bufferedColor: Colors.white),
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 allowScrubbing: true),
           )
         ],
